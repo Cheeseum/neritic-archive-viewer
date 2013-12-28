@@ -1,10 +1,10 @@
-var neriticArchiveApp = angular.module('neriticArchiveApp', [
+var navApp = angular.module('navApp', [
     'ngRoute',
-    'neriticArchiveControllers',
-    'neriticArchiveServices'
+    'navControllers',
+    'navServices'
 ]);
 
-neriticArchiveApp.config(['$routeProvider',
+navApp.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider.when('/', {
             // TODO: routes&templates

@@ -1,7 +1,7 @@
-var neriticArchiveControllers = angular.module('neriticArchiveControllers', [
-    'neriticArchiveServices'
+var navControllers = angular.module('navControllers', [
+    'navServices'
 ]);
 
-neriticArchiveControllers.controller('PostListCtrl', ['$scope', 'Post', function ($scope, Post) {
+navControllers.controller('PostListCtrl', function ($scope, Post) {
     $scope.posts = Post.query({thread: 1});
-}]);
+});
