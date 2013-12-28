@@ -1,4 +1,4 @@
-var neriticArchive= angular.module('neriticArchiveViewer', []);
+var neriticArchive= angular.module('neriticArchive', []);
 
 neriticArchive.controller('PostListCtrl', function ($scope) {
     //TODO: actually retrieve posts from archive
