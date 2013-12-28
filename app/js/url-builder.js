@@ -10,7 +10,6 @@
             resourceMap = options.resourceMap;
         },
         get: function () {
-            window.wtf = arguments;
             var args = Array.prototype.slice.call(arguments),
                 resource = args.shift(),
                 pregex = /:\w+/,
