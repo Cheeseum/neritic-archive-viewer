@@ -37,3 +37,9 @@ navServices.factory('Thread', function ($resource) {
         get: {url: 'threads/:id'}
     });
 });
+
+navServices.factory('Post', function ($resource) {
+    return makeJsonpResource($resource, 'threads/:thread/posts', {
+        get: {url: 'posts/:id'}
+    });
+});
