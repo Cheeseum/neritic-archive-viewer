@@ -3,5 +3,5 @@ var neriticArchiveControllers = angular.module('neriticArchiveControllers', [
 ]);
 
 neriticArchiveControllers.controller('PostListCtrl', ['$scope', 'Post', function ($scope, Post) {
-    $scope.posts = Post.get({thread: 1});
+    $scope.posts = Post.query({thread: 1});
 }]);
