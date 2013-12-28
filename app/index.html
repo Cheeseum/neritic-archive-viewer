@@ -1,13 +1,18 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="neriticArchive">
 <head>
     <meta charset="utf-8">
     <title>Neritic Archive</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="lib/angular/angular.min.js"></script>
+    <script src="js/controller.js"></script>
 </head>
 <body>
     <h1>Neritic Archive</h1>
-    <p>{{'some ' +  'posts ' + 'here'}}</p>
+    <ul ng-controller="PostListCtrl">
+        <li ng-repeat="post in posts">
+        {{post.content}}
+        </li>
+    </ul>
 </body>
 </html>
