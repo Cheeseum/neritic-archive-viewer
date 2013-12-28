@@ -6,8 +6,13 @@ var navApp = angular.module('navApp', [
 
 navApp.config(['$routeProvider',
     function ($routeProvider) {
-        $routeProvider.when('/', {
-            // TODO: routes&templates
+        $routeProvider.
+        when('/', {
+            templateUrl: 'partials/thread-list.html'
+        }).
+        when('/thread/:threadId', {
+            templateUrl: 'partials/post-list.html',
+            controller: 'PostListCtrl'
         });
     }
 ]);

@@ -14,8 +14,9 @@ navControllers.controller('ThreadListCtrl', function ($scope, Thread) {
     $scope.threads = Thread.query({forum: $scope.forum.id});
 });
 
-navControllers.controller('PostListCtrl', function ($scope, Post) {
-    $scope.posts = Post.query({thread: $scope.thread.id});
+navControllers.controller('PostListCtrl', function ($scope, $routeParams, Post) {
+    $scope.threadId = $routeParams.threadId;
+    $scope.posts = Post.query({thread: $routeParams.threadId});
 });
 
 navControllers.controller('UserListCtrl', function ($scope, User) {
