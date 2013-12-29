@@ -43,3 +43,7 @@ navServices.factory('Post', function ($resource) {
         get: {url: 'posts/:id'}
     });
 });
+
+navServices.factory('User', function ($resource) {
+    return makeJsonpResource($resource, 'users/:id');
+});
