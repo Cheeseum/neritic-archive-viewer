@@ -1,17 +1,7 @@
  <div>
-    <ul ng-controller="CategoryListCtrl">
-        <li ng-repeat="category in categories">
-            {{category.title}}
-            <ul ng-controller="ForumListCtrl">
-                <li ng-repeat="forum in forums">
-                    {{forum.title}}
-                    <ul ng-controller="ThreadListCtrl">
-                        <li ng-repeat="thread in threads">
-                            {{thread.title}}
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+    <ul>
+        <li ng-repeat="thread in threads">
+            <a href="thread/{{thread.id}}">{{thread.title}}</a>
         </li>
     </ul>
 </div>

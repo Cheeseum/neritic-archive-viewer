@@ -6,12 +6,14 @@ navControllers.controller('CategoryListCtrl', function ($scope, Category) {
     $scope.categories = Category.query();
 });
 
-navControllers.controller('ForumListCtrl', function ($scope, Forum) {
-    $scope.forums = Forum.query({category: $scope.category.id});
+navControllers.controller('ForumListCtrl', function ($scope, $routeParams, Forum) {
+    $scope.categoryId = $routeParams.categoryId;
+    $scope.forums = Forum.query({category: $routeParams.categoryId});
 });
 
-navControllers.controller('ThreadListCtrl', function ($scope, Thread) {
-    $scope.threads = Thread.query({forum: $scope.forum.id});
+navControllers.controller('ThreadListCtrl', function ($scope, $routeParams, Thread) {
+    $scope.forumId = $routeParams.forumId;
+    $scope.threads = Thread.query({forum: $routeParams.forumId});
 });
 
 navControllers.controller('PostListCtrl', function ($scope, $routeParams, Post) {
