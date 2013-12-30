@@ -24,3 +24,9 @@ navControllers.controller('PostListCtrl', function ($scope, $routeParams, Post) 
 navControllers.controller('UserListCtrl', function ($scope, User) {
     $scope.users = User.query();
 });
+
+navControllers.directive('userData', function(User) {
+    return function(scope, element, attrs) {
+        scope.user = User.get({id: attrs.userData});
+    };
+});

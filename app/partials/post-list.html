@@ -1,7 +1,7 @@
  <div>
     <ul>
         <li ng-repeat="post in posts">
-        {{post.user}}: {{post.content}}
+            <span user-data="{{post.user}}">{{user.name}}</span>: {{post.content}}
         </li>
     </ul>
 </div>
