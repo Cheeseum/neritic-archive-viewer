@@ -24,6 +24,6 @@ navApp.config(['$routeProvider', '$locationProvider',
             controller: 'PostListCtrl'
         });
 
-        $locationProvider.html5Mode(true);
+        // enable on deploy: $locationProvider.html5Mode(true);
     }
 ]);
