@@ -18,7 +18,12 @@ navControllers.controller('ThreadListCtrl', function ($scope, $routeParams, Thre
 
 navControllers.controller('PostListCtrl', function ($scope, $routeParams, Post) {
     $scope.threadId = $routeParams.threadId;
-    $scope.posts = Post.query({thread: $routeParams.threadId});
+    $scope.posts = Post.query({thread: $routeParams.threadId, page: 1});
+
+    $scope.posts.$promise.then(function (response) {
+        console.log(response.data.pagination);
+    });
+
 });
 
 navControllers.controller('UserListCtrl', function ($scope, User) {

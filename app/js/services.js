@@ -6,7 +6,18 @@ function makeJsonpResource($resource, url, opts) {
             cache: true,
             params: {callback: 'JSON_CALLBACK'},
             transformResponse: function (data) {
+                if (data.pagination) {
+                    data.content.pagination = data.pagination;
+                }
                 return data.content;
+            },
+            interceptor: {
+                response: function (response) {
+                    if (response.data.pagination) {
+                        response.resource.pagination = response.data.pagination;
+                    }
+                    return response;
+                }
             }
         },
         defaultResource = {
