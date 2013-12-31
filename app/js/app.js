@@ -2,7 +2,8 @@ var navApp = angular.module('navApp', [
     'ngRoute',
     'ngAnimate',
     'navControllers',
-    'navServices'
+    'navServices',
+    'angularMoment'
 ]);
 
 navApp.config(['$routeProvider', '$locationProvider',
