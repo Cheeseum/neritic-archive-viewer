@@ -2,13 +2,8 @@ var navControllers = angular.module('navControllers', [
     'navServices'
 ]);
 
-navControllers.controller('CategoryListCtrl', function ($scope, Category) {
+navControllers.controller('IndexCtrl', function ($scope, Category, Forum) {
     $scope.categories = Category.query();
-});
-
-navControllers.controller('ForumListCtrl', function ($scope, $routeParams, Forum) {
-    $scope.categoryId = $routeParams.categoryId;
-    $scope.forums = Forum.query({category: $routeParams.categoryId});
 });
 
 navControllers.controller('ThreadListCtrl', function ($scope, $routeParams, Thread) {
@@ -30,7 +25,13 @@ navControllers.controller('UserListCtrl', function ($scope, User) {
     $scope.users = User.query();
 });
 
-navControllers.directive('userData', function(User) {
+navControllers.directive('forumsByCategory', function (Category, Forum) {
+    return function (scope, element, attrs) {
+        scope.forums = Forum.query({category: attrs.forumsByCategory});
+    };
+});
+
+navControllers.directive('userData', function (User) {
     return function(scope, element, attrs) {
         scope.user = User.get({id: attrs.userData});
     };

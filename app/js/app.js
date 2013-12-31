@@ -6,15 +6,11 @@ var navApp = angular.module('navApp', [
 ]);
 
 navApp.config(['$routeProvider', '$locationProvider',
-    function ($routeProvider, $locationProvider) {
+    function ($routeProvider) {
         $routeProvider.
         when('/', {
-            templateUrl: 'partials/category-list.html',
-            controller: 'CategoryListCtrl'
-        }).
-        when('/category/:categoryId', {
             templateUrl: 'partials/forum-list.html',
-            controller: 'ForumListCtrl'
+            controller: 'IndexCtrl'
         }).
         when('/forum/:forumId', {
             templateUrl: 'partials/thread-list.html',

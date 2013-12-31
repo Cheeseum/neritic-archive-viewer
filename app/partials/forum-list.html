@@ -1,5 +1,10 @@
 <ul>
-    <li ng-repeat="forum in forums">
-        <a ng-href="#forum/{{forum.id}}">{{forum.title}}</a>
+    <li ng-repeat="category in categories">
+        <h2>{{category.title}}</h2>
+        <ul forums-by-category="{{category.id}}">
+            <li ng-repeat="forum in forums">
+                <a ng-href="#forum/{{forum.id}}">{{forum.title}}</a>
+            </li>
+        </ul>
     </li>
-</ul>
+</li>
