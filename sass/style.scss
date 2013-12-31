@@ -1,17 +1,40 @@
 @import 'animations';
 
-$font-family:       sans-serif;
+$font-family:       'Droid Sans', 'Liberation Sans', sans-serif;
 $primary-color:     #5d5a92;
 $secondary-color:   #d3c3d6;
-$fill-color:        #fff;
+$bg-color:          #0d0c14;
+$side-pad: 8px;
 
 body {
-    background: $fill-color;
-
+    background: $bg-color;
     font-family: $font-family;
     color: $primary-color;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    line-height: 1em;
+    padding: 0;
+    margin: 0;
+}
+
+.category-list {
+    &>li {
+        h2 {
+            padding: 0 $side-pad;
+            font-size: .8em;
+            line-height: 2em;
+            margin: 0;
+            background: darken($primary-color, 30%);
+            color: darken($primary-color, 10%);
+        }
+    }
+}
 ul {
     margin: 0;
     padding: 0;
@@ -21,11 +44,34 @@ ul {
 
 li {
     a {
-        color: $primary-color;
+        -webkit-transition: color .2s;
+        -moz-transition: color .2s;
+        -o-transition: color .2s;
+        transition: color .2s;
         text-decoration: none;
+        font-weight: bold;
+        &:link {
+            color: $primary-color;
+        }
+        &:visited {
+            color: darken(desaturate($primary-color, 20%), 10%);
+        }
+        &:hover {
+            color: $secondary-color;
+        }
     }
+}
 
-    a:hover {
-        color: $secondary-color;
+.forum-list {
+    &>li a {
+        padding: 0 $side-pad;
+        display: block;
+        line-height: 2em;
+        &:link, &:visited {
+            background: darken($primary-color, 20%);
+        }
+        &:hover {
+            background: darken($secondary-color, 60%);
+        }
     }
 }
