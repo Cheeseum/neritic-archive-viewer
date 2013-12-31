@@ -25,13 +25,13 @@
 }
 
 .view-frame.ng-enter {
-    @include animation(1.5s, fade-in);
+    @include animation(0.7s, slide-in);
     z-index: 100;
 }
  
 .view-frame.ng-leave {
-    @include animation(0.5s, fade-out);
-    z-index:99;
+    @include animation(0.7s, slide-out);
+    z-index: 99;
 }
 
 @include keyframes(fade-in) {
@@ -42,4 +42,14 @@
 @include keyframes(fade-out) {
     from { opacity: 1; }
     to { opacity: 0; }
+}
+
+@include keyframes(slide-in) {
+    from { left: -1000px; opacity: 0 };
+    to { left: 0; opacity: 100 };
+}
+
+@include keyframes(slide-out) {
+    from { left: 0; opacity: 100 };
+    to { left: -1000px; opacity: 0 };
 }

@@ -1,5 +1,31 @@
 @import 'animations';
 
+$font-family:       sans-serif;
+$primary-color:     #5d5a92;
+$secondary-color:   #d3c3d6;
+$fill-color:        #fff;
+
+body {
+    background: $fill-color;
+
+    font-family: $font-family;
+    color: $primary-color;
+}
+
 ul {
     margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+}
+
+li {
+    a {
+        color: $primary-color;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: $secondary-color;
+    }
 }
