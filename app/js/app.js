@@ -1,5 +1,6 @@
 var navApp = angular.module('navApp', [
     'ngRoute',
+    'ngAnimate',
     'navControllers',
     'navServices'
 ]);
