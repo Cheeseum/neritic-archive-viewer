@@ -5,6 +5,12 @@
     animation: $duration $effect;
 }
 
+@mixin keyframes ($name) {
+    @keyframes $name { @content };
+    @-moz-keyframes $name { @content };
+    @-webkit-keyframes $name { @content };
+}
+
 .view-container {
     position: relative;
 }
@@ -28,28 +34,12 @@
     z-index:99;
 }
 
-@keyframes fade-in {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-@-moz-keyframes fade-in {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-@-webkit-keyframes fade-in {
-from { opacity: 0; }
-to { opacity: 1; }
+@include keyframes(fade-in) {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
  
-@keyframes fade-out {
-from { opacity: 1; }
-to { opacity: 0; }
-}
-@-moz-keyframes fade-out {
-from { opacity: 1; }
-to { opacity: 0; }
-}
-@-webkit-keyframes fade-out {
-from { opacity: 1; }
-to { opacity: 0; }
+@include keyframes(fade-out) {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
