@@ -16,10 +16,10 @@
 <div class="page-list">
     <ul>
         <!-- this custom directive will resolve the hash prefix for us -->
-        <li><button ng-disabled="{{currentPage <= 0}}" button-href="thread/{{threadId}}/0">&laquo;</button></li>
-        <li><button ng-disabled="{{currentPage <= 0}}" button-href="thread/{{threadId}}/{{currentPage - 1}}">&lsaquo;</button></li>
+        <li><button ng-disabled="currentPage <= 1" button-href="thread/{{threadId}}/1">&laquo;</button></li>
+        <li><button ng-disabled="currentPage <= 1" button-href="thread/{{threadId}}/{{currentPage - 1}}">&lsaquo;</button></li>
         <li><span>{{currentPage}}</span></li>
-        <li><button ng-disabled="{{currentPage >= pages.pageCount}}" button-href="thread/{{threadId}}/{{currentPage + 1}}">&rsaquo;</button></li>
-        <li><button ng-disabled="{{currentPage >= pages.pageCount}}" button-href="thread/{{threadId}}/{{pages.pageCount - 1}}">&raquo;</button></li>
+        <li><button ng-disabled="currentPage >= pageCount" button-href="thread/{{threadId}}/{{currentPage + 1}}">&rsaquo;</button></li>
+        <li><button ng-disabled="currentPage >= pageCount" button-href="thread/{{threadId}}/{{pageCount}}">&raquo;</button></li>
     </ul>
 </div>
