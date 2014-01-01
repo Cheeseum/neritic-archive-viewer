@@ -151,6 +151,23 @@ a {
         }
         br + blockquote { margin-top: 2px; }
         blockquote + br { display: none; }
+
+        .spoiler:before {
+            content: "Spoilers";
+            font-weight: bold;
+            color: $content-color;
+            display: block;
+        }
+        .spoiler {
+            color: transparent;
+            background: rgba($content-bg, .3);
+            padding: 0 $side-pad;
+        }
+
+        .spoiler:hover {
+            color: inherit;
+            &:before { visibility: hidden; }
+        }
     }
 }
 
