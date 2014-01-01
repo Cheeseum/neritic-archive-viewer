@@ -176,6 +176,8 @@ a {
     margin-bottom: $nav-height;
     margin-top: $nav-height;
 
+    padding: 0 $side-pad;
+
     background: rgba($content-bg, .7);
 
     h1 {
