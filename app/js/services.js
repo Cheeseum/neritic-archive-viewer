@@ -2,7 +2,20 @@
 var navServices = angular.module('navServices', ['ngResource']);
 
 function makeJsonpResource($resource, url, opts) {
-    var defaultOpts = {
+    var extendDeep = function extendDeep (dst) {
+        angular.forEach(arguments, function (obj) {
+            if (obj !== dst) {
+                angular.forEach(obj, function (value, key) {
+                if (dst[key]) {
+                      extendDeep(dst[key], value);
+                    } else {
+                      dst[key] = value;
+                    }
+                });
+            }
+        });
+        return dst;
+    }, defaultOpts = {
             method: 'JSONP',
             cache: true,
             params: {callback: 'JSON_CALLBACK'},
@@ -23,15 +36,22 @@ function makeJsonpResource($resource, url, opts) {
         },
         defaultResource = {
             get: angular.extend({}, defaultOpts, {isArray: false}),
-            query: angular.extend({},defaultOpts, {isArray: true})
+            query: angular.extend({}, defaultOpts, {isArray: true})
         },
         u = function (url) {
             var apiUrl = 'http://archive.neritic.net/';
             return apiUrl + url;
-        };
+        },
+        method;
 
     opts = opts || {};
-    return $resource(u(url), {}, angular.extend(defaultResource, opts));
+    for (method in opts) {
+        if (opts[method].url !== undefined) {
+            opts[method].url = u(opts[method].url);
+            console.log(opts[method]);
+        }
+    }
+    return $resource(u(url), {}, extendDeep({}, defaultResource, opts));
 }
 
 navServices.factory('Category', function ($resource) {

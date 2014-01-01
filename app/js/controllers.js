@@ -11,15 +11,17 @@ navControllers.controller('ThreadListCtrl', function ($scope, $routeParams, Thre
     $scope.threads = Thread.query({forum: $routeParams.forumId});
 });
 
-navControllers.controller('PostListCtrl', function ($scope, $routeParams, Post) {
+navControllers.controller('PostListCtrl', function ($scope, $routeParams, Thread, Post) {
     $scope.threadId = $routeParams.threadId;
-    $scope.currentPage = $routeParams.page ? parseInt($routeParams.page) : 1;
+    $scope.currentPage = $routeParams.page ? parseInt($routeParams.page, 10) : 1;
 
     // the upstream api counts from 0
     $scope.posts = Post.query({thread: $routeParams.threadId, page: $scope.currentPage - 1});
     $scope.posts.$promise.then(function (response) {
         $scope.pageCount = response.data.pagination.pageCount;
     });
+
+    $scope.thread = Thread.get({id: $routeParams.threadId});
 });
 
 navControllers.controller('UserListCtrl', function ($scope, User) {

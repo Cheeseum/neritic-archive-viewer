@@ -9,6 +9,7 @@ $header-color:      #e0e0e0;
 $content-bg:        #000;
 $content-color:     #f0f0f0;
 $side-pad:          8px;
+$nav-height: 40px;
 
 body {
     background: #000 url(../img/bg.jpg);
@@ -30,13 +31,6 @@ html, body {
     height: 100%;
 }
 
-h1 {
-    line-height: 1em;
-    color: $header-color;
-    background: rgba($header-bg, .8);
-    padding: 0;
-    margin: 0;
-}
 
 ul {
     margin: 0;
@@ -93,7 +87,8 @@ li {
 
 .post-list {
     line-height: 2em;
-    margin-bottom: 40px;
+    margin-bottom: $nav-height;
+    margin-top: $nav-height;
     .post-info {
         @extend .clearfix;
         padding: 0 $side-pad;
@@ -124,15 +119,24 @@ li {
     }
 }
 
-.page-list {
+.nav-bar {
     position: fixed;
-    bottom: 0;
     width: 100%;
-
-    background: rgba($header-bg, .7);
     text-align: center;
     font-size: 2em;
-    height: 40px;
+    height: $nav-height;
+}
+
+.top-bar {
+    @extend .nav-bar;
+    top: 0;
+    background: rgba($header-bg, .8);
+}
+
+.page-list {
+    @extend .nav-bar;
+    bottom: 0;
+    background: rgba($header-bg, .7);
 
     &>ul li {
         display: inline;
