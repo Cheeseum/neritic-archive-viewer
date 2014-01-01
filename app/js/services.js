@@ -39,7 +39,7 @@ function makeJsonpResource($resource, url, opts) {
             query: angular.extend({}, defaultOpts, {isArray: true})
         },
         u = function (url) {
-            var apiUrl = 'http://archive.neritic.net/';
+            var apiUrl = 'http://archive.neritic.net/api/';
             return apiUrl + url;
         },
         method;
