@@ -10,3 +10,10 @@
         clear: both;
     }
 }
+
+.soft-transition {
+    -webkit-transition: background .1s, color .2s;
+    -moz-transition: background .1s, color .2s;
+    -o-transition: background .1s, color .2s;
+    transition: background .1s, color .2s;
+}
