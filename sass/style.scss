@@ -130,9 +130,26 @@ li {
 
     &>ul li {
         display: inline;
-    }
+        
+        &>button {
+            width: 65px;
 
-    &>ul li a {
-        font-size: 1.5em; 
+            margin: 0;
+            padding: 0 15px;
+            
+            font-size: 1.5em; 
+            color: $content-color;
+
+            border: 0;
+            background: inherit;
+
+            &:hover {
+                color: $primary-color;
+            }
+
+            &:active {
+                color: rgba($secondary-color, 0.5);
+            }
+        }
     }
 }
