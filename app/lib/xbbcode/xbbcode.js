@@ -40,7 +40,7 @@ var XBBCODE = function(extraTags) {
     var me = {},
         urlPattern = /^(?:https?|file|c):(?:\/{1,3}|\\{1})[-a-zA-Z0-9:@#%&()~_?\+=\/\\\.]*$/,
         colorNamePattern = /^(?:red|green|blue|orange|yellow|black|white|brown|gray|silver|purple|maroon|fushsia|lime|olive|navy|teal|aqua)$/,
-        colorCodePattern = /^#?[a-fA-F0-9]{6}$/,
+        colorCodePattern = /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/,
         tags,
         tagList,
         tagsNoParseList = [],
@@ -340,10 +340,15 @@ var XBBCODE = function(extraTags) {
 
     (function () {
         /* extend tags */
-        var tag;
+        var tag, extraTag;
         if (extraTags) {
             for (tag in extraTags) {
-                tags[tag] = extraTags[tag];
+                extraTag = extraTags[tag];
+                if (typeof extraTag === "string" && tags[extraTag] !== undefined) {
+                    tags[tag] = tags[extraTag];
+                } else {
+                    tags[tag] = extraTag;
+                }
             }
         }
     }());
