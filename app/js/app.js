@@ -20,6 +20,10 @@ navApp.config(['$routeProvider', '$locationProvider',
         when('/thread/:threadId/:page?', {
             templateUrl: 'partials/post-list.html',
             controller: 'PostListCtrl'
+        }).
+        when('/user/:userId', {
+            templateUrl: 'partials/user-view.html',
+            controller: 'UserInfoCtrl'
         });
         // enable on deploy: $locationProvider.html5Mode(true);
     }

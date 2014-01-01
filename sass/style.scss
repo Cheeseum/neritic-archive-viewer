@@ -154,6 +154,33 @@ a {
     }
 }
 
+.user-view {
+    line-height: 2em;
+    margin-bottom: $nav-height;
+    margin-top: $nav-height;
+
+    background: rgba($content-bg, .7);
+
+    h1 {
+        margin-bottom: 0;
+    }
+
+    h4 {
+        margin: 0;
+        color: rgba($content-color, .6);
+    }
+
+    hr {
+        margin: 0;
+        border-style: dotted;
+    }
+}
+
+.label {
+    padding: 0 0.2em;
+    font-weight: bold;
+}
+
 .nav-bar {
     position: fixed;
     left: 0;

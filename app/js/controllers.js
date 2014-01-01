@@ -45,6 +45,10 @@ navControllers.controller('UserListCtrl', function ($scope, User) {
     $scope.users = User.query();
 });
 
+navControllers.controller('UserInfoCtrl', function ($scope, $routeParams, User) {
+    $scope.user = User.get({id: $routeParams.userId});
+});
+
 navControllers.directive('forumsByCategory', function (Category, Forum) {
     return function (scope, element, attrs) {
         scope.forums = Forum.query({category: attrs.forumsByCategory});
