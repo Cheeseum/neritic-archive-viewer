@@ -78,7 +78,8 @@ navServices.factory('BBCodeParser', function () {
             closeTag: function () {
                 return '</div>';
             }
-        }
+        },
+        c: 'color'
     });
 
     return {
