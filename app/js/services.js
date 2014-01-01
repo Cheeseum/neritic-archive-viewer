@@ -1,3 +1,4 @@
+/*global XBBCODE*/
 var navServices = angular.module('navServices', ['ngResource']);
 
 function makeJsonpResource($resource, url, opts) {
@@ -57,4 +58,37 @@ navServices.factory('Post', function ($resource) {
 
 navServices.factory('User', function ($resource) {
     return makeJsonpResource($resource, 'users/:id');
+});
+
+navServices.factory('BBCodeParser', function () {
+    var parser = new XBBCODE({
+        youtube: {
+            openTag: function (params, content) {
+                content = content.replace(/watch\?v=/, 'embed/');
+                return '<iframe width="500" height="300" src="'+content+'" frameborder="0" allowfullscreen>';
+            },
+            closeTag: function () {
+                return '</iframe>';
+            }
+        },
+        spoiler: {
+            openTag: function () {
+                return '<div class="spoiler">';
+            },
+            closeTag: function () {
+                return '</div>';
+            }
+        }
+    });
+
+    return {
+        toHtml: function (str) {
+            var result = parser.process({
+                text: str,
+                removeMisalignedTags: false,
+                addInLineBreaks: true
+            });
+            return result.html;
+        }
+    };
 });

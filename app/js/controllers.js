@@ -2,7 +2,7 @@ var navControllers = angular.module('navControllers', [
     'navServices'
 ]);
 
-navControllers.controller('IndexCtrl', function ($scope, Category, Forum) {
+navControllers.controller('IndexCtrl', function ($scope, Category) {
     $scope.categories = Category.query();
 });
 
@@ -32,7 +32,20 @@ navControllers.directive('forumsByCategory', function (Category, Forum) {
 });
 
 navControllers.directive('userData', function (User) {
-    return function(scope, element, attrs) {
-        scope.user = User.get({id: attrs.userData});
+    return function($scope, element, attrs) {
+        $scope.user = User.get({id: attrs.userData});
+    };
+});
+
+navControllers.directive('bbCode', function (BBCodeParser) {
+    return {
+        restrict: 'A',
+        replace: true,
+        link: function ($scope, element) {
+            $scope.$watch(element, function () {
+                var content = BBCodeParser.toHtml(element.text().trim());
+                element.html('').append(content);
+            });
+        }
     };
 });
