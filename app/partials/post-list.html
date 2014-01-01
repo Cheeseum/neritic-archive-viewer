@@ -14,7 +14,9 @@
     </li>
 </ul>
 <ul class="page-list">
-    <li ng-repeat="page in range(10) track by $index">
-        <a ng-click="nextPage()">{{$currentPage + $index}}</a>
-    </li>
+    <li><a ng-href="#/thread/{{threadId}}/0">first</a></li>
+    <li><a ng-href="#/thread/{{threadId}}/{{currentPage - 1}}">prev</a></li>
+    <li><span>{{currentPage}}</span></li>
+    <li><a ng-href="#/thread/{{threadId}}/{{currentPage + 1}}">next</a></li>
+    <li><a ng-href="#/thread/{{threadId}}/{{pages.pageCount - 1}}">last</a></li>
 </ul>
