@@ -41,7 +41,6 @@ h1 {
 ul {
     margin: 0;
     padding: 0;
-
     list-style-type: none;
 }
 
@@ -94,6 +93,7 @@ li {
 
 .post-list {
     line-height: 2em;
+    margin-bottom: 40px;
     .post-info {
         @extend .clearfix;
         padding: 0 $side-pad;
@@ -119,44 +119,47 @@ li {
 
             & br:first-child { display: none; }
         }
+        br + blockquote { margin-top: 2px; }
         blockquote + br { display: none; }
     }
 }
 
 .page-list {
-    background: rgba($header-bg, .8);
-    font-size: 1.5em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    background: rgba($header-bg, .7);
     text-align: center;
+    font-size: 2em;
+    height: 40px;
 
     &>ul li {
         display: inline;
 
-        &>span {
-            padding: 0 15px;
-        }
-        
-        &>button {
-            width: 65px;
-
+        &>span, &>button {
             margin: 0;
-            padding: 0 15px;
-            
-            font-size: 1.5em; 
-            color: $content-color;
+            padding: 0 .5em;
+        }
 
+        &>button {
+            @extend .soft-transition;
+            color: $content-color;
             border: 0;
+            font-size: inherit;
             background: inherit;
 
             &:hover {
                 color: $primary-color;
+                background: rgba($header-bg, .2)
             }
 
             &:active {
-                color: rgba($secondary-color, 0.5);
+                color: rgba($secondary-color, .5);
             }
 
             &:disabled {
-                color: rgba($secondary-color, 0.3);
+                color: rgba($secondary-color, .3);
             }
         }
     }
