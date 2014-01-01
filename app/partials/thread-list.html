@@ -26,7 +26,7 @@
     <ul>
         <li><button ng-disabled="currentPage <= 1" button-href="forum/{{forumId}}/1">&laquo;</button></li>
         <li><button ng-disabled="currentPage <= 1" button-href="forum/{{forumId}}/{{currentPage - 1}}">&lsaquo;</button></li>
-        <li><span>{{currentPage}}</span></li>
+        <li><span>{{currentPage}}<small ng-if="pageCount > 1"> / {{pageCount}}</small></span></li>
         <li><button ng-disabled="currentPage >= pageCount" button-href="forum/{{forumId}}/{{currentPage + 1}}">&rsaquo;</button></li>
         <li><button ng-disabled="currentPage >= pageCount" button-href="forum/{{forumId}}/{{pageCount}}">&raquo;</button></li>
     </ul>
