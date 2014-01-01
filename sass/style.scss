@@ -154,6 +154,10 @@ li {
             &:active {
                 color: rgba($secondary-color, 0.5);
             }
+
+            &:disabled {
+                color: rgba($secondary-color, 0.3);
+            }
         }
     }
 }
