@@ -48,7 +48,6 @@ function makeJsonpResource($resource, url, opts) {
     for (method in opts) {
         if (opts[method].url !== undefined) {
             opts[method].url = u(opts[method].url);
-            console.log(opts[method]);
         }
     }
     return $resource(u(url), {}, extendDeep({}, defaultResource, opts));
