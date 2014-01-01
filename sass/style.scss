@@ -22,6 +22,7 @@ body {
     background-attachment: fixed;
     font-family: $font-family;
     color: $content-color;
+    overflow-x: hidden;
 }
 
 html, body {
@@ -123,6 +124,7 @@ a {
         padding: $side-pad;
         background: rgba($content-bg, .6);
         color: $content-color;
+        word-wrap: break-word;
 
         img {
             max-width: 100%;
@@ -147,6 +149,9 @@ a {
     line-height: $nav-height;
     height: $nav-height;
     padding: 0 $side-pad;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .top-bar {
