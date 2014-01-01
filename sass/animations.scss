@@ -22,6 +22,7 @@
     right: 0;
 
 }
+/*
 
 .view-frame.ng-enter {
     @include animation(0.7s, slide-in);
@@ -32,6 +33,7 @@
     @include animation(0.7s, slide-out);
     z-index: 99;
 }
+*/
 
 @include keyframes(fade-in) {
     from { opacity: 0; }
