@@ -13,15 +13,11 @@ navApp.config(['$routeProvider', '$locationProvider',
             templateUrl: 'partials/forum-list.html',
             controller: 'IndexCtrl'
         }).
-        when('/forum/:forumId', {
+        when('/forum/:forumId/:page?', {
             templateUrl: 'partials/thread-list.html',
             controller: 'ThreadListCtrl'
         }).
-        when('/thread/:threadId', {
-            templateUrl: 'partials/post-list.html',
-            controller: 'PostListCtrl'
-        }).
-        when('/thread/:threadId/:page', {
+        when('/thread/:threadId/:page?', {
             templateUrl: 'partials/post-list.html',
             controller: 'PostListCtrl'
         });

@@ -1,5 +1,25 @@
+<div class="top-bar">
+    <a ng-href="#/">Main</a>
+    &raquo;
+    {{forum.title}}
+</div>
 <ul class="thread-list">
     <li ng-repeat="thread in threads">
-        <a ng-href="#thread/{{thread.id}}">{{thread.title}}</a>
+        <a ng-href="#thread/{{thread.id}}">
+            {{thread.title}}
+
+            <div class="date">
+                {{thread.lastPostDate | amDateFormat: 'MMM D YYYY'}}
+            </div>
+        </a>
     </li>
 </ul>
+<div class="page-list">
+    <ul>
+        <li><button ng-disabled="currentPage <= 1" button-href="forum/{{forumId}}/1">&laquo;</button></li>
+        <li><button ng-disabled="currentPage <= 1" button-href="forum/{{forumId}}/{{currentPage - 1}}">&lsaquo;</button></li>
+        <li><span>{{currentPage}}</span></li>
+        <li><button ng-disabled="currentPage >= pageCount" button-href="forum/{{forumId}}/{{currentPage + 1}}">&rsaquo;</button></li>
+        <li><button ng-disabled="currentPage >= pageCount" button-href="forum/{{forumId}}/{{pageCount}}">&raquo;</button></li>
+    </ul>
+</div>

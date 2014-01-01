@@ -1,4 +1,6 @@
 <div class="top-bar">
+    <a ng-href="#forum/{{forum.id}}">{{forum.title}}</a>
+    &raquo;
     {{thread.title}}
 </div>
 <ul class="post-list">
@@ -7,7 +9,7 @@
             <a class="user-name" ng-href="#user/{{user.id}}">
                 {{user.name}}
             </a>
-            <a class="post-date">
+            <a class="date">
                 {{post.date | amDateFormat: 'MMM D YYYY, h:mm:ss a'}}
             </a>
         </div>

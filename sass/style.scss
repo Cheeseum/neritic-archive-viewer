@@ -38,23 +38,21 @@ ul {
     list-style-type: none;
 }
 
-li {
-    a {
-        -webkit-transition: background .1s, color .2s;
-        -moz-transition: background .1s, color .2s;
-        -o-transition: background .1s, color .2s;
-        transition: background .1s, color .2s;
-        text-decoration: none;
-        font-weight: bold;
-        &:link {
-            color: $primary-color;
-        }
-        &:visited {
-            color: darken(desaturate($primary-color, 20%), 10%);
-        }
-        &:hover {
-            color: $secondary-color;
-        }
+a {
+    -webkit-transition: background .1s, color .2s;
+    -moz-transition: background .1s, color .2s;
+    -o-transition: background .1s, color .2s;
+    transition: background .1s, color .2s;
+    text-decoration: none;
+    font-weight: bold;
+    &:link {
+        color: $primary-color;
+    }
+    &:visited {
+        color: darken(desaturate($primary-color, 20%), 10%);
+    }
+    &:hover {
+        color: $secondary-color;
     }
 }
 
@@ -72,16 +70,38 @@ li {
 }
 
 .forum-list, .thread-list {
-    &>li a {
-        padding: 0 $side-pad;
-        display: block;
-        line-height: 2em;
-        &:link, &:visited {
-            background: rgba($content-bg, .6);
+    &>li {
+        &>a {
+            padding: 0 $side-pad;
+            display: block;
+            line-height: 2em;
+            border-top: rgba($content-color, .1) 1px solid;
+            &:link, &:visited {
+                background: rgba($content-bg, .6);
+            }
+            &:hover, &:active {
+                background: rgba($content-bg, .7);
+            }
+            &>.date{
+                font-size: .9em;
+                color: $content-color;
+                font-weight: normal;
+            }
         }
-        &:hover {
-            background: rgba($content-bg, .7);
+        &:nth-child(1) {
+            a {
+                border: 0;
+            }
         }
+    }
+}
+
+.thread-list {
+    margin-bottom: $nav-height;
+    margin-top: $nav-height;
+
+    .date {
+        float: right;
     }
 }
 
@@ -96,7 +116,7 @@ li {
         background: rgba($content-bg, .7);
 
         .user-name { float: left; }
-        .post-date { float: right; }
+        .date { float: right; }
     }
     .post-content {
         padding: $side-pad;
@@ -123,19 +143,22 @@ li {
     position: fixed;
     width: 100%;
     text-align: center;
-    font-size: 2em;
+    line-height: $nav-height;
     height: $nav-height;
+    padding: 0 $side-pad;
 }
 
 .top-bar {
     @extend .nav-bar;
     top: 0;
     background: rgba($header-bg, .8);
+    text-align: left;
 }
 
 .page-list {
     @extend .nav-bar;
     bottom: 0;
+    font-size: 2em;
     background: rgba($header-bg, .7);
 
     &>ul li {
@@ -164,6 +187,7 @@ li {
 
             &:disabled {
                 color: rgba($secondary-color, .3);
+                background: inherit;
             }
         }
     }
