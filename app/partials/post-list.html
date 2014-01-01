@@ -13,10 +13,12 @@
         </div>
     </li>
 </ul>
-<ul class="page-list">
-    <li><a ng-href="#/thread/{{threadId}}/0">first</a></li>
-    <li><a ng-href="#/thread/{{threadId}}/{{currentPage - 1}}">prev</a></li>
-    <li><span>{{currentPage}}</span></li>
-    <li><a ng-href="#/thread/{{threadId}}/{{currentPage + 1}}">next</a></li>
-    <li><a ng-href="#/thread/{{threadId}}/{{pages.pageCount - 1}}">last</a></li>
-</ul>
+<div class="page-list">
+    <ul>
+        <li><a ng-href="#/thread/{{threadId}}/0">&laquo;</a></li>
+        <li><a ng-href="#/thread/{{threadId}}/{{currentPage - 1}}">&lsaquo;</a></li>
+        <li><span>{{currentPage}}</span></li>
+        <li><a ng-href="#/thread/{{threadId}}/{{currentPage + 1}}">&rsaquo;</a></li>
+        <li><a ng-href="#/thread/{{threadId}}/{{pages.pageCount - 1}}">&raquo;</a></li>
+    </ul>
+</div>
