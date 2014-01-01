@@ -13,11 +13,12 @@ navControllers.controller('ThreadListCtrl', function ($scope, $routeParams, Thre
 
 navControllers.controller('PostListCtrl', function ($scope, $routeParams, Post) {
     $scope.threadId = $routeParams.threadId;
-    $scope.currentPage = $routeParams.page ? parseInt($routeParams.page) : 0;
+    $scope.currentPage = $routeParams.page ? parseInt($routeParams.page) : 1;
 
-    $scope.posts = Post.query({thread: $routeParams.threadId, page: $scope.currentPage});
+    // the upstream api counts from 0
+    $scope.posts = Post.query({thread: $routeParams.threadId, page: $scope.currentPage - 1});
     $scope.posts.$promise.then(function (response) {
-        $scope.pages = response.data.pagination;
+        $scope.pageCount = response.data.pagination.pageCount;
     });
 });
 
