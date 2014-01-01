@@ -13,12 +13,25 @@ navControllers.controller('ThreadListCtrl', function ($scope, $routeParams, Thre
 
 navControllers.controller('PostListCtrl', function ($scope, $routeParams, Post) {
     $scope.threadId = $routeParams.threadId;
-    $scope.posts = Post.query({thread: $routeParams.threadId, page: 0});
+    
+    $scope.posts = [];
+    $scope.currentPage = 0;
 
-    $scope.posts.$promise.then(function (response) {
-        console.log(response.data.pagination);
-    });
+    $scope.reloadPosts = function () {
+        console.log($scope.currentPage);
+        $scope.posts = Post.query({thread: $routeParams.threadId, page: $scope.currentPage});
+    }
 
+    $scope.nextPage = function () {
+        $scope.currentPage += 1;
+        $scope.reloadPosts();
+    }
+
+    $scope.range = function (n) {
+        return new Array(n);
+    }
+    
+    $scope.reloadPosts();
 });
 
 navControllers.controller('UserListCtrl', function ($scope, User) {

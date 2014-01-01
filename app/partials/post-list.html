@@ -13,3 +13,8 @@
         </div>
     </li>
 </ul>
+<ul class="page-list">
+    <li ng-repeat="page in range(10) track by $index">
+        <a ng-click="nextPage()">{{$currentPage + $index}}</a>
+    </li>
+</ul>
