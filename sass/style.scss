@@ -130,6 +130,10 @@ li {
 
     &>ul li {
         display: inline;
+
+        &>span {
+            padding: 0 15px;
+        }
         
         &>button {
             width: 65px;
