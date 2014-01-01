@@ -84,8 +84,8 @@ a {
             &:hover, &:active {
                 background: rgba($content-bg, .7);
             }
-            &>.date{
-                font-size: .9em;
+            &>.date, &>.user-name, &>.count, &>.desc {
+                font-size: .8em;
                 color: $content-color;
                 font-weight: normal;
             }
@@ -98,12 +98,24 @@ a {
     }
 }
 
+.forum-list {
+    &>li>a {
+        &>.title { float: left; }
+        &>.count { float: right;}
+        &>.desc { clear: left; float: left; }
+        &>.date { clear: right; float: right; }
+    }
+}
+
 .thread-list {
     margin-bottom: $nav-height;
     margin-top: $nav-height;
 
-    .date {
-        float: right;
+    &>li>a {
+        &>.title { float: left; }
+        &>.count { float: right; }
+        &>.user-name { clear: left; float: left; }
+        &>.date { clear: right; float: right; }
     }
 }
 
@@ -144,7 +156,8 @@ a {
 
 .nav-bar {
     position: fixed;
-    width: 100%;
+    left: 0;
+    right: 0;
     text-align: center;
     line-height: $nav-height;
     height: $nav-height;

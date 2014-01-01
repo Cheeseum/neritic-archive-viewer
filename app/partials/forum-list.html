@@ -3,7 +3,21 @@
         <h2>{{category.title}}</h2>
         <ul class="forum-list" forums-by-category="{{category.id}}">
             <li ng-repeat="forum in forums">
-                <a ng-href="#forum/{{forum.id}}">{{forum.title}}</a>
+                <a ng-href="#forum/{{forum.id}}">
+                    <div class="title">
+                        {{forum.title}}
+                    </div>
+                    <div class="count">
+                        {{forum.threadCount}} threads, {{forum.postCount}} posts
+                    </div>
+
+                    <div class="desc">
+                        {{forum.description}}
+                    </div>
+                    <div class="date">
+                        {{forum.lastPostDate | amDateFormat: 'MMM D YYYY'}}
+                    </div>
+                </a>
             </li>
         </ul>
     </li>

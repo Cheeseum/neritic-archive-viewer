@@ -5,9 +5,17 @@
 </div>
 <ul class="thread-list">
     <li ng-repeat="thread in threads">
-        <a ng-href="#thread/{{thread.id}}">
-            {{thread.title}}
+        <a user-data="{{thread.user}}" ng-href="#thread/{{thread.id}}">
+            <div class="title">
+                {{thread.title}}
+            </div>
+            <div class="count">
+                {{thread.postCount - 1}} replies, {{thread.viewCount}} views
+            </div>
 
+            <div class="user-name">
+                by {{user.name}}
+            </div>
             <div class="date">
                 {{thread.lastPostDate | amDateFormat: 'MMM D YYYY'}}
             </div>
