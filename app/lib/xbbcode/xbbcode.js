@@ -588,7 +588,7 @@ var XBBCODE = function(extraTags) {
             ret.html = ret.html.replace(/\[.*?\]/g,"");
         }
         if (config.addInLineBreaks) {
-            ret.html = '<div style="white-space:pre;">' + ret.html + '</div>';
+            ret.html = ret.html.replace(/\r?\n/g, "<br>");
         }
 
         ret.html = ret.html.replace("&#91;", "["); // put ['s back in

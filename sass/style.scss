@@ -94,6 +94,7 @@ li {
 
 .post-list {
     line-height: 2em;
+    br + br {display: none;}
     .post-info {
         @extend .clearfix;
         padding: 0 $side-pad;
