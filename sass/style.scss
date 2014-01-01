@@ -72,6 +72,7 @@ a {
 .forum-list, .thread-list {
     &>li {
         &>a {
+            @extend .clearfix;
             padding: 0 $side-pad;
             display: block;
             line-height: 2em;
