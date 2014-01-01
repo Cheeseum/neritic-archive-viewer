@@ -94,7 +94,6 @@ li {
 
 .post-list {
     line-height: 2em;
-    br + br {display: none;}
     .post-info {
         @extend .clearfix;
         padding: 0 $side-pad;
@@ -105,9 +104,22 @@ li {
         .post-date { float: right; }
     }
     .post-content {
-        padding: 0 $side-pad;
+        padding: $side-pad;
         background: rgba($content-bg, .6);
         color: $content-color;
+
+        img {
+            max-width: 100%;
+        }
+
+        blockquote {
+            margin: 0;
+            padding: $side-pad;
+            border: rgba($content-bg, .3) 4px solid;
+
+            & br:first-child { display: none; }
+        }
+        blockquote + br { display: none; }
     }
 }
 
