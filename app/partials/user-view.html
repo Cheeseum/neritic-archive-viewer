@@ -1,0 +1,12 @@
+<div class="top-bar">
+    <a ng-href="#/">Main</a>
+    &raquo;
+    {{user.name}}
+</div>
+<ul class="user-view">
+    <li><h1>{{user.name}}</h1></li>
+    <li><h4>{{user.title}}</h3></li>
+    <li ng-if="user.location"><span class="label">Location:</span><span>{{user.location}}</span></li>
+    <hr>
+    <li ng-if="user.biography"><span bb-code>{{user.biography}}</span></li>
+</ul>
