@@ -15,6 +15,12 @@
                 {{user.threadCount}}
                 <span ng-pluralize count="user.threadCount" when="{'1': 'thread', 'other': 'threads'}"></span>
             </div>
+            <div class="power">
+                {{user.powerLevel}}
+            </div>
+            <div class="date">
+                {{user.lastViewDate | amDateFormat: 'MMM D YYYY'}}
+            </div>
         </a>
     </li>
 </ul>

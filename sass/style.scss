@@ -84,7 +84,7 @@ a {
             &:hover, &:active {
                 background: rgba($content-bg, .7);
             }
-            &>.date, &>.user-name, &>.count, &>.desc {
+            &>.date, &>.user-name, &>.count, &>.desc, &>.power {
                 font-size: .8em;
                 color: $content-color;
                 font-weight: normal;
@@ -124,7 +124,9 @@ a {
     margin-top: $nav-height;
     &>li>a {
         &>.name { float: left; }
-        &>.count { float: right;}
+        &>.count { float: right; }
+        &>.power { float: left; clear: left; }
+        &>.date { float: right; clear: right; }
     }
 }
 
