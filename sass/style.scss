@@ -70,7 +70,7 @@ a {
     }
 }
 
-.forum-list, .thread-list {
+.forum-list, .thread-list, .user-list {
     &>li {
         &>a {
             @extend .clearfix;
@@ -116,6 +116,15 @@ a {
         &>.count { float: right; }
         &>.user-name { clear: left; float: left; }
         &>.date { clear: right; float: right; }
+    }
+}
+
+.user-list {
+    margin-bottom: $nav-height;
+    margin-top: $nav-height;
+    &>li>a {
+        &>.name { float: left; }
+        &>.count { float: right;}
     }
 }
 
@@ -172,26 +181,47 @@ a {
 }
 
 .user-view {
+    @extend .clearfix;
     line-height: 2em;
-    margin-bottom: $nav-height;
     margin-top: $nav-height;
-
     padding: 0 $side-pad;
 
     background: rgba($content-bg, .7);
 
-    h1 {
-        margin-bottom: 0;
-    }
-
-    h4 {
+    .title {
         margin: 0;
         color: rgba($content-color, .6);
     }
 
-    hr {
-        margin: 0;
-        border-style: dotted;
+    .info-l {
+        width: 50%;
+        float: left;
+    }
+    .info-r {
+        width: 50%;
+        float: right;
+        margin: $side-pad 0;
+
+        &>div {
+            height: 2em;
+            border-left: rgba($content-bg, .3) 4px solid;
+            padding-left: $side-pad;
+        }
+        .label {
+            width: 50%;
+            text-align: left;
+        }
+        .date, .location {
+            width: 50%;
+            float: right;
+            text-align: right;
+        }
+    }
+
+    .bio {
+        border-top: rgba($content-bg, .3) 4px solid;
+        padding-top: $side-pad;
+        clear: both;
     }
 }
 
