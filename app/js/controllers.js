@@ -41,8 +41,16 @@ navControllers.controller('PostListCtrl', function ($scope, $routeParams, Forum,
     });
 });
 
-navControllers.controller('UserListCtrl', function ($scope, User) {
-    $scope.users = User.query();
+navControllers.controller('UserListCtrl', function ($scope, $routeParams, User) {
+    $scope.currentPage = $routeParams.page ? parseInt($routeParams.page, 10) : 1;
+
+    // the upstream api counts from 0
+    $scope.users = User.query({
+        page: $scope.currentPage - 1
+    });
+    $scope.users.$promise.then(function (response) {
+        $scope.pageCount = response.data.pagination.pageCount;
+    });
 });
 
 navControllers.controller('UserInfoCtrl', function ($scope, $routeParams, User) {
@@ -67,7 +75,8 @@ navControllers.directive('bbCode', function (BBCodeParser) {
         replace: true,
         link: function ($scope, element) {
             $scope.$watch(element, function () {
-                var content = BBCodeParser.toHtml(element.text().trim());
+                var text = element.text().trim().replace(/<[^>]+\/?>/g, ''),
+                content = BBCodeParser.toHtml(text);
                 element.html('').append(content);
             });
         }
