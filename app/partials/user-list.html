@@ -1,0 +1,29 @@
+<div class="top-bar">
+    <a ng-href="#/">Main</a>
+    &raquo;
+    Users
+</div>
+<ul class="user-list">
+    <li ng-repeat="user in users">
+        <a ng-href="#user/{{user.id}}">
+            <div class="name">
+                {{user.name}}
+            </div>
+            <div class="count">
+                {{user.postCount}}
+                <span ng-pluralize count="user.postCount" when="{'1': 'post', 'other': 'posts'}"></span>,
+                {{user.threadCount}}
+                <span ng-pluralize count="user.threadCount" when="{'1': 'thread', 'other': 'threads'}"></span>
+            </div>
+        </a>
+    </li>
+</ul>
+<div class="page-list">
+    <ul>
+        <li><button ng-disabled="currentPage <= 1" button-href="users/1">&laquo;</button></li>
+        <li><button ng-disabled="currentPage <= 1" button-href="users/{{currentPage - 1}}">&lsaquo;</button></li>
+        <li><span>{{currentPage}}<small ng-if="pageCount > 1"> / {{pageCount}}</small></span></li>
+        <li><button ng-disabled="currentPage >= pageCount" button-href="users/{{currentPage + 1}}">&rsaquo;</button></li>
+        <li><button ng-disabled="currentPage >= pageCount" button-href="users/{{pageCount}}">&raquo;</button></li>
+    </ul>
+</div>
