@@ -1,12 +1,45 @@
 <div class="top-bar">
-    <a ng-href="#/">Main</a>
+    <a ng-href="#/users">Users</a>
     &raquo;
     {{user.name}}
 </div>
-<ul class="user-view">
-    <li><h1>{{user.name}}</h1></li>
-    <li><h4>{{user.title}}</h3></li>
-    <li ng-if="user.location"><span class="label">Location:</span><span>{{user.location}}</span></li>
-    <hr>
-    <li ng-if="user.biography"><span bb-code>{{user.biography}}</span></li>
-</ul>
+<div class="user-view">
+    <div class="info-l">
+        <div class="title" ng-if="user.title" bb-code>{{user.title}}</div>
+        <div class="power">
+            {{user.powerLevel}}
+        </div>
+        <div class="count">
+            {{user.postCount}}
+            <span ng-pluralize count="user.postCount" when="{'1': 'post', 'other': 'posts'}"></span>,
+            {{user.threadCount}}
+            <span ng-pluralize count="user.threadCount" when="{'1': 'thread', 'other': 'threads'}"></span>
+        </div>
+    </div>
+    <div class="info-r">
+        <div class="registered">
+            <span class="label">Registered</span>
+            <span class="date">{{user.registrationDate | amDateFormat: 'MMM D YYYY'}}</span>
+        </div>
+        <div class="last-post">
+            <span class="label">Last post</span>
+            <span ng-if="user.lastPostDate" class="date">
+                {{user.lastPostDate | amDateFormat: 'MMM D YYYY'}}
+            </span>
+            <span ng-if="!user.lastPostDate" class="date">
+                Never
+            </span>
+        </div>
+        <div class="last-seen">
+            <span class="label">Last seen</span>
+            <span class="date">{{user.lastViewDate | amDateFormat: 'MMM D YYYY'}}</span>
+        </div>
+        <div ng-if="user.location">
+            <span class="label">Location</span>
+            <span class="location">{{user.location}}</span>
+        </div>
+    </div>
+    <div class="bio" ng-if="user.biography">
+        <span bb-code>{{user.biography}}</span>
+    </div>
+</div>
