@@ -8,7 +8,10 @@
                         {{forum.title}}
                     </div>
                     <div class="count">
-                        {{forum.threadCount}} threads, {{forum.postCount}} posts
+                        {{forum.postCount}}
+                        <span ng-pluralize count="forum.postCount" when="{'1': 'post', 'other': 'posts'}"></span>,
+                        {{forum.threadCount}}
+                        <span ng-pluralize count="forum.threadCount" when="{'1': 'thread', 'other': 'threads'}"></span>
                     </div>
 
                     <div class="desc">
