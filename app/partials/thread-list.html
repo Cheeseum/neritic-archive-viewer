@@ -10,7 +10,10 @@
                 {{thread.title}}
             </div>
             <div class="count">
-                {{thread.postCount - 1}} replies, {{thread.viewCount}} views
+                {{thread.viewCount}}
+                <span ng-pluralize count="thread.viewCount" when="{'1': 'view', 'other': 'views'}"></span>,
+                {{thread.postCount}}
+                <span ng-pluralize count="thread.postCount" when="{'1': 'reply', 'other': 'replies'}"></span>
             </div>
 
             <div class="user-name">
