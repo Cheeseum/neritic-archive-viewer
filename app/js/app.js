@@ -21,6 +21,10 @@ navApp.config(['$routeProvider', '$locationProvider',
             templateUrl: 'partials/post-list.html',
             controller: 'PostListCtrl'
         }).
+        when('/users/:page?', {
+            templateUrl: 'partials/user-list.html',
+            controller: 'UserListCtrl'
+        }).
         when('/user/:userId', {
             templateUrl: 'partials/user-view.html',
             controller: 'UserInfoCtrl'
