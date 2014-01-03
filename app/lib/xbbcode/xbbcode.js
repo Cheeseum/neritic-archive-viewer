@@ -197,11 +197,12 @@ var XBBCODE = function(extraTags) {
         },
         "quote": {
             openTag: function(params,content) {
-                return '<blockquote class="xbbcode-blockquote">';
+                return '<blockquote class="xbbcode-blockquote">' + content.trim();
             },
             closeTag: function(params,content) {
                 return '</blockquote>';
-            }
+            },
+            displayContent: false
         },
         "s": {
             openTag: function(params,content) {

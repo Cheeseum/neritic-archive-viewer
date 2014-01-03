@@ -1,5 +1,6 @@
 @import 'animations';
 @import 'misc';
+@import 'xbbcode';
 
 $font-family:       'Droid Sans', 'Liberation Sans', sans-serif;
 $primary-color:     #6ad;
@@ -157,8 +158,6 @@ a {
             margin: 0;
             padding: $side-pad;
             border: rgba($content-bg, .3) 4px solid;
-
-            & br:first-child { display: none; }
         }
         br + blockquote { margin-top: 2px; }
         blockquote + br { display: none; }
